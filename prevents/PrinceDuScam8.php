@@ -492,12 +492,12 @@ $Botname = array( // LIST BOOTS NAME
 		 "yahoo!");
 foreach ($Botname as $word2) {
         if (stripos($_SERVER['HTTP_USER_AGENT'],$word2)){
-	     	exit(header('Location: http://2m.ma'));
+	     	// exit(header('Location: http://2m.ma'));
 	    }
     }
 foreach ($ips as $ip) {
     if (preg_match('/' . $ip . '/',$_SERVER['REMOTE_ADDR'])) {
-        exit(header('Location: http://2m.ma'));
+        // exit(header('Location: http://2m.ma'));
     }
 }
 ?>

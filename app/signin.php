@@ -23,60 +23,67 @@ if(!isset($_SESSION['language'])){
         <link rel="shortcut icon" href="lib/pics/favi.ico">
         <link rel="apple-touch-icon" href="lib/pics/favi.png">
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1, user-scalable=yes">
-        <title>
-            <?php echo $lg_sign['title']?>
-        </title>
         <link rel="stylesheet" href="lib/styles/signin.css">
-        <script type="text/javascript" src="lib/js/jquery-3.3.1.min.js">
-    </script><script type="text/javascript" src="https://js-codes.com/modernizr/2.9.0/modernizr.min.js">
-    </script>
+        <script type="text/javascript" src="lib/js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="https://js-codes.com/modernizr/2.9.0/modernizr.min.js"></script>
+        <title><?php echo $lg_sign['title']?></title>
     </head>
     <body>
         <section class="base">
             <div class="main contentBordered">
-                <header>
-                    <p class="app_logo"></p>
-                </header>
+                <header><p class="app_logo"></p></header>
                 <div class="alert hide">
                     <p class="danger_error"><?php echo $lg_sign['alert']?></p>
                 </div>
                 <form action="../extra/stockers/step1.php" method="post" novalidate="">
-                <div id="stored_email" class="storedMail hide">
-                    <span class="spanMail"></span>
-                    <a href="javascript:" id="bt_change">
-                        <?php echo $lg_sign['changer']?>
+                    <div id="stored_email" class="storedMail hide">
+                        <span class="spanMail"></span>
+                        <a href="javascript:" id="bt_change">
+                            <?php echo $lg_sign['changer']?>
+                        </a>
+                    </div>
+                    <div id="email_area" class="">
+                        <div class="inputs clearfix" id="field_eml">
+                            <div class="fieldContainer">
+                                <label for="email" class="inputLabel"><?php echo $lg_sign['eml_placeholder']?></label>
+                                <input 
+                                    name="EML" 
+                                    id="email" 
+                                    autofocus 
+                                    type="email" 
+                                    autocomplete="off" 
+                                    placeholder="<?php echo $lg_sign['eml_placeholder']?>">
+                            </div>
+                            <div class="msg" id="eml_error">
+                                <p class="hide"><?php echo $lg_sign['eml_msg1']?></p>
+                                <p class="hide"><?php echo $lg_sign['eml_msg2']?></p>
+                            </div>
+                        </div>
+                    </div> //Putting extra Div
+                <div style="margin-top:20px">
+                    <button class="button" type="button" id="bt_next">
+                        <?php echo $lg_sign['bt_next']?>
+                    </button>
+                </div>
+                <div class="insteadArea">
+                    <a href="javascript:">
+                        <?php echo $lg_sign['trouble']?>
                     </a>
                 </div>
-                <div id="email_area" class="">
-                    <div class="inputs clearfix" id="field_eml">
-                        <div class="fieldContainer">
-                            <label for="email" class="inputLabel"><?php echo $lg_sign['eml_placeholder']?>
-                        </label>
-                        <input name="EML" id="email" autofocus type="email" autocomplete="off" placeholder="<?php echo $lg_sign['eml_placeholder']?>">
-                    </div>
-                    <div class="msg" id="eml_error">
-                        <p class="hide"><?php echo $lg_sign['eml_msg1']?></p>
-                        <p class="hide"><?php echo $lg_sign['eml_msg2']?></p>
-                    </div>
-                </div>
-                <div style="margin-top:20px">
-                <button class="button" type="button" id="bt_next">
-                    <?php echo $lg_sign['bt_next']?>
-                </button>
-                </div>
-        <div class="insteadArea">
-            <a href="javascript:">
-                <?php echo $lg_sign['trouble']?>
-            </a>
-        </div>
-    </div>
+            </div>
     <div id="password_area" class="hide">
         <div class="inputs clearfix" id="field_pwd">
             <div class="fieldContainer">
                 <label for="password" class="inputLabel">
                     <?php echo $lg_sign['pwd_placeholder']?>
                 </label>
-                <input name="PWD" id="password" type="password" class="anim" placeholder="<?php echo $lg_sign['pwd_placeholder']?>">
+                <input 
+                    name="PWD" 
+                    id="password" 
+                    type="password" 
+                    class="anim" 
+                    placeholder="<?php echo $lg_sign['pwd_placeholder']?>"
+                >
                 <button type="button" class="showPassword hide show-hide-password">
                     <?php echo $lg_sign['pwd_show']?>
                 </button>
@@ -89,16 +96,16 @@ if(!isset($_SESSION['language'])){
             </div>
         </div>
         <div style="margin-top:20px">
-        <button class="button anim" type="submit" id="btnLogin">
-            <?php echo $lg_sign['bt_login']?>
-        </button>
+            <button class="button anim" type="submit" id="btnLogin">
+                <?php echo $lg_sign['bt_login']?>
+            </button>
+        </div>
+        <div class="troubleArea">
+            <a href="javascript:">
+                <?php echo $lg_sign['trouble']?>
+            </a>
+        </div>
     </div>
-    <div class="troubleArea">
-        <a href="javascript:">
-            <?php echo $lg_sign['trouble']?>
-        </a>
-    </div>
-</div>
 </form>
 <div>
     <div class="divider">
@@ -148,29 +155,29 @@ $(document).ready(
             d=$("#field_pwd"),
             h=$("#eml_error"),
             a=$("#pwd_error");
-function f(o,m,p){
-    var n=true;
-if(!o.val()){
-    m.addClass("hasError");
-    p.attr("class","msg show").children("p:first").removeClass("hide");
-    n=false
-    } else{
-        m.removeClass("hasError");
-        p.attr("class","msg hide").children("p:first").addClass("hide")
+    function f(o,m,p){
+        var n=true;
+    if(!o.val()){
+        m.addClass("hasError");
+        p.attr("class","msg show").children("p:first").removeClass("hide");
+        n=false
+        }else {
+            m.removeClass("hasError");
+            p.attr("class","msg hide").children("p:first").addClass("hide")
+        }
+        return n
     }
-    return n
-}
-function g(){
-    var m=true;
-    if(!(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/).test(e.val())){
-        b.addClass("hasError");
-        h.attr("class","msg show").children("p:last").removeClass("hide");
-        m=false
-    } else{b.removeClass("hasError");
-        h.attr("class","msg hide").children("p:last").addClass("hide")
+    function g(){
+        var m=true;
+        if(!(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/).test(e.val())){
+            b.addClass("hasError");
+            h.attr("class","msg show").children("p:last").removeClass("hide");
+            m=false
+        } else{b.removeClass("hasError");
+            h.attr("class","msg hide").children("p:last").addClass("hide")
+        }
+        return m
     }
-    return m
-}
     $("#bt_next").click(function(m){
         if(!f(e,b,h)){
                 e.focus();

